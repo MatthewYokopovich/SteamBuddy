@@ -7,4 +7,11 @@ SteamBuddy is a singlepage application that allows the user to easily view and a
 This website will be a MERN stack app.
 
 # Layout
+Homepage
+![Website Diagram](https://github.com/MatthewYokopovich/SteamBuddy/blob/master/img/readme1.png)
 
+Stat Search
+![Website Diagram](https://github.com/MatthewYokopovich/SteamBuddy/blob/master/img/readme2.png)
+
+Game stats
+![Website Diagram](https://github.com/MatthewYokopovich/SteamBuddy/blob/master/img/readme3.png)
