@@ -40,7 +40,7 @@ export default function Nav() {
       >
         <MenuIcon />
       </IconButton>
-      <Typography variant="title" color="inherit">
+      <Typography variant="h3" color="inherit">
       <Link href="/" color="inherit" className={classes.link}>
         SteamBuddy
       </Link>

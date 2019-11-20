@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import SteamLogin from "../components/SteamLogin";
 
 class Home extends Component{
 
     render(){
         return(
             <div>
-            Account
+                <SteamLogin />
             </div>
         )
     }
