@@ -29,7 +29,7 @@ class Home extends Component{
         loggedIn: false,
     }
     componentDidMount(){
-        const appstoget = [440, 823500, 546560]
+        const appstoget = [440, 823500, 546560];
         API.checkLogin().then(resp=>{
             let loggedIn = resp.data;
             API.getNews(appstoget).then(res=>{

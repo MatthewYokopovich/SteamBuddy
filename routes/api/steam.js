@@ -77,12 +77,32 @@ router.route("/getmydata").get((req, res)=>{
 })
 
 router.route("/getachievementdata").post((req, res)=>{
-  let query = "http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid="+req.body.appid+"&key="+process.env.STEAM_KEY+"&steamid="+req.user.steamId;
-  console.log(query);
+  let query = "http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid="+req.body.appid;
   axios.get(query).then(resp=>{
-    res.json(resp.data);
+    res.json(resp.data.achievementpercentages.achievements);
   }).catch(err=>{
     res.send(err);
+  })
+})
+
+router.route("/getgameschema").post((req, res)=>{
+  let query = "http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key="+process.env.STEAM_KEY+"&appid="+req.body.appid;
+  axios.get(query).then(resp=>{
+    res.json(resp.data.game);
+  })
+})
+
+router.route("/getownedgames").get((req, res)=>{
+  let query = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key="+process.env.STEAM_KEY+"&steamid="+req.user.steamId+"&include_appinfo=1&include_played_free_games=1";
+  axios.get(query).then(resp=>{
+    res.json(resp.data.response);
+  })
+})
+
+router.route("/getrecentlyplayed").get((req, res)=>{
+  let query = "http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key="+process.env.STEAM_KEY+"&steamid="+req.user.steamId;
+  axios.get(query).then(resp=>{
+    res.json(resp.data.response);
   })
 })
 module.exports = router;

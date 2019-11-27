@@ -23,7 +23,7 @@ class SearchBox extends Component{
 
     render(){
         return (
-            <div>
+            <Grid container justify={"center"}>
             <form onSubmit={this.handleSubmit} >
             <label>
                 Search:
@@ -48,7 +48,7 @@ class SearchBox extends Component{
                     </div>
                 )}
             </ul>
-            </div>
+            </Grid>
         )
     }
 }

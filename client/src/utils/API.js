@@ -38,5 +38,16 @@ export default {
       appid
     });
   },
+  getGameSchema: function(appid){
+    return axios.post("/api/steam/getgameschema", {
+      appid
+    });
+  },
+  getOwnedGames: function(){
+    return axios.get("/api/steam/getownedgames");
+  },
+  getRecentlyPlayed: function(){
+    return axios.get("/api/steam/getrecentlyplayed");
+  }
  
 };
