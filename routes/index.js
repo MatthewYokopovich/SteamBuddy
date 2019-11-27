@@ -1,7 +1,7 @@
 const path = require("path");
 const axios = require("axios");
 const router = require("express").Router();
-passport = require('passport');
+const passport = require('passport');
 const apiRoutes = require("./api");
 
 // API Routes
@@ -12,23 +12,18 @@ router.post('/auth/steam',
     res.redirect('/');
   });
 
-router.get('/auth/steam/return', 
-// function(req, res, next) {
-//   console.log("stuff");
-//   req.url = req.originalUrl;
-//   next();
-// },  
+router.get('/auth/steam/return',  
 passport.authenticate('steam'),
     function(request, response) {
-        console.log(request);
-        response.redirect("/");
+        // console.log(request.user);
+        response.redirect("http://localhost:3000/loggedin")
 });
-
 router.post('/auth/logout', function(request, response) {
   request.logout();
+  console.log("logout");
   // After logging out, redirect the user somewhere useful.
   // Where they came from or the site root are good choices.
-  response.redirect(request.get('Referer') || '/')
+  response.redirect(request.get('/'));
 });
 router.use("/api", apiRoutes);
 
@@ -36,5 +31,7 @@ router.use("/api", apiRoutes);
 router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
+
+
 
 module.exports = router;

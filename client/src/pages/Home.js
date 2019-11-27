@@ -3,6 +3,8 @@ import Grid from "@material-ui/core/Grid";
 import Paper from '@material-ui/core/Paper';
 import API from "../utils/API";
 import Game from "../components/Game";
+import Friend from "../components/Friend";
+import User from "../components/User";
 
 
 const leftPaper = {
@@ -22,21 +24,57 @@ class Home extends Component{
     state={
         appnews: [],
         applist: [],
+        friends: [],
+        userdata: {},
+        loggedIn: false,
     }
     componentDidMount(){
-        const appstoget = [440, 823500]
-        API.getNews(appstoget).then(res=>{
-        console.log(res.data);
-        this.setState({
-            appnews: res.data
-            });
+        const appstoget = [440, 823500, 546560]
+        API.checkLogin().then(resp=>{
+            let loggedIn = resp.data;
+            API.getNews(appstoget).then(res=>{
+                if(loggedIn){
+                    API.getUserFriends().then(response=>{
+                        API.getUserData(response.data).then(respo=>{
+                            API.getMyData().then(respon=>{
+                                this.setState({
+                                appnews: res.data,
+                                friends: respo.data,
+                                userdata: respon.data[0],
+                                loggedIn
+                                })
+                                console.log(this.state.userdata);
+                            })
+                        });
+                        
+                    })
+                }
+                else{
+                   this.setState({
+                appnews: res.data,
+                loggedIn
+            }); 
+                }
+            
+          })
+        
         })
     }
     render(){
         return(
             <Grid container spacing={3}>
                 <Grid item xs={3}>
-                    <Paper style={leftPaper}>left</Paper>
+                    <Paper style={leftPaper}>
+                        {this.state.userdata.steamid ? (
+                            <div>
+                                <User id={this.state.userdata.steamid} name={this.state.userdata.personaname} imgsrc={this.state.userdata.avatarmedium} url={this.state.userdata.profileurl} />
+                            </div>
+                        ): (
+                            <div>
+                                Login to view your information
+                                </div>
+                        )}
+                    </Paper>
                 </Grid>
                 <Grid item xs={6}>
                     <Paper style={mainPaper}>
@@ -54,7 +92,20 @@ class Home extends Component{
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
-                    <Paper style={rightPaper}>right</Paper>
+                    <Paper style={rightPaper}>
+                        {this.state.friends.length ? (
+                            <ul>
+                                {this.state.friends.map(f=>{
+                                    return(
+                                       <Friend key={f.steamid} id={f.steamid} name={f.personaname} imgsrc={f.avatarmedium} url={f.profileurl}/>
+                                    )
+                                })}
+                            </ul>
+                        ):(
+                            <div>
+                                No Friends found </div>
+                        )}
+                    </Paper>
                 </Grid>
             </Grid>
         )

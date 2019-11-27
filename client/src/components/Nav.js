@@ -1,61 +1,62 @@
-import React from 'react';
+import React, { Component } from "react";
 import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme } from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import API from "../utils/API";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  link: {
-    margin: theme.spacing(1),
-  },
-  toolbarButtons: {
-    marginLeft: "auto",
-    marginRight: -12
-  },
-}));
+const theme = createMuiTheme();
+class Nav extends Component{
 
-export default function Nav() {
-  const classes = useStyles();
-  const preventDefault = event => event.preventDefault();
+  state={
+    loggedIn: false
+  }
 
-  return (
+  componentDidMount(){
+    API.checkLogin().then(resp=>{
+      console.log(resp.data);
+      this.setState({
+        loggedIn: resp.data
+      })
+    })
+  }
+  
+  render(){
+    return (
     <AppBar position="static">
     <Toolbar>
       <IconButton
-        className={classes.menuButton}
         color="inherit"
         aria-label="Menu"
+        style={{marginRight: theme.spacing(2)}}
       >
         <MenuIcon />
       </IconButton>
       <Typography variant="h3" color="inherit">
-      <Link href="/" color="inherit" className={classes.link}>
+      <Link href="/" color="inherit"  style={{margin: theme.spacing(1)}}>
         SteamBuddy
       </Link>
       </Typography>
-      <span className={classes.toolbarButtons}>
+      <span  style={{marginLeft: "auto",    marginRight: -12}}>
       <Typography>
-      <Link href="/search" color="inherit" className={classes.link}>
+      <Link href="/search" color="inherit" style={{margin: theme.spacing(1)}}>
         Search
       </Link>
-      <Link href="/account" color="inherit" className={classes.link}>
-        Account
-      </Link>
+        {this.state.loggedIn ? (
+          <Link href="/account" color="inherit" style={{margin: theme.spacing(1)}}>Account </Link>
+        ):(
+          <Link href="/account" color="inherit" style={{margin: theme.spacing(1)}}>Login </Link>
+        )}
     </Typography>
       </span>
     </Toolbar>
   </AppBar>
   );
+  }
 }
+
+export default Nav;
