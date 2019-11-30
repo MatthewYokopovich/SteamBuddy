@@ -23,8 +23,8 @@ app.use(session({
   saveUninitialized: true}));
 
 passport.use(new SteamStrategy({
-  returnURL: 'http://localhost:'+PORT+'/auth/steam/return',
-  realm: 'http://localhost:'+PORT+'/',
+  returnURL: 'https://stark-wildwood-54419.herokuapp.com:'+PORT+'/auth/steam/return',
+  realm: 'https://stark-wildwood-54419.herokuapp.com:'+PORT+'/',
   apiKey: process.env.STEAM_KEY,
 },
 function(identifier, profile, done) {
