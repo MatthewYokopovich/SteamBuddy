@@ -105,4 +105,13 @@ router.route("/getrecentlyplayed").get((req, res)=>{
     res.json(resp.data.response);
   })
 })
+
+router.route("/getplayerachievements").post((req, res)=>{
+  let query = "http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid="+req.body.app+"&key="+process.env.STEAM_KEY+"&steamid="+req.user.steamId;
+  axios.get(query).then(resp=>{
+    res.json(resp.data.playerstats.achievements);
+  }).catch(err=>{
+    console.log(err);
+  })
+})
 module.exports = router;

@@ -9,7 +9,6 @@ import User from "../components/User";
 
 const leftPaper = {
   textAlign: 'center',
-  color: "red",
 }
 const mainPaper = {
   textAlign: 'center',
@@ -17,7 +16,6 @@ const mainPaper = {
 }
 const rightPaper = {
   textAlign: 'center',
-  color: "yellow",
 }
 class Home extends Component{
 
@@ -43,7 +41,7 @@ class Home extends Component{
                                 userdata: respon.data[0],
                                 loggedIn
                                 })
-                                console.log(this.state.userdata);
+                                console.log(this.state);
                             })
                         });
                         
@@ -67,7 +65,7 @@ class Home extends Component{
                     <Paper style={leftPaper}>
                         {this.state.userdata.steamid ? (
                             <div>
-                                <User id={this.state.userdata.steamid} name={this.state.userdata.personaname} imgsrc={this.state.userdata.avatarmedium} url={this.state.userdata.profileurl} />
+                                <User id={this.state.userdata.steamid} name={this.state.userdata.personaname} imgsrc={this.state.userdata.avatarmedium} url={this.state.userdata.profileurl} pstate={this.state.userdata.personastate}/>
                             </div>
                         ): (
                             <div>
@@ -97,7 +95,7 @@ class Home extends Component{
                             <ul>
                                 {this.state.friends.map(f=>{
                                     return(
-                                       <Friend key={f.steamid} id={f.steamid} name={f.personaname} imgsrc={f.avatarmedium} url={f.profileurl}/>
+                                       <Friend key={f.steamid} id={f.steamid} name={f.personaname} imgsrc={f.avatarmedium} url={f.profileurl} pstate={f.personastate}/>
                                     )
                                 })}
                             </ul>

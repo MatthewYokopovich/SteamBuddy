@@ -76,13 +76,14 @@ class Home extends Component{
                     </Grid>
                     <Grid item xs={6} style={styles.paperRight}>
                         <Paper>
-                            <h4>Recently Played</h4>
+                            <h4>Recently Played(last 2 weeks)</h4>
                             <ul>
                                 {this.state.recentlyplayed.games.map(g=>(
                                     <AccountGame key={g.appid} name={g.name} playtime={g.playtime_forever} imglogo={"http://media.steampowered.com/steamcommunity/public/images/apps/"+g.appid+"/"+g.img_logo_url+".jpg"} />
                                 ))}
                             </ul>
-                        </Paper><SteamLogout />
+                        </Paper>
+                        <h4>Steam Logout</h4><SteamLogout />
                         </Grid></div>
                 ):(
                     <SteamLogin />

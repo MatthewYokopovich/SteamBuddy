@@ -32,6 +32,7 @@ class SearchResults extends Component {
     state={
         newsinfo: {},
         gameschema: {},
+        playerachievements: [],
         globalachievements: [],
         loggedIn: false,
     }
@@ -44,13 +45,26 @@ class SearchResults extends Component {
             API.getSearchNews(appid).then(resp=>{
                 API.getGameSchema(appid).then(respo=>{
                     API.getAchievementData(appid).then(respon=>{
-                        this.setState({
+                        loggedIn ?(
+                            API.getPlayerAchievements(appid).then(respons=>{
+                              this.setState({
+                                newsinfo: resp.data[0],
+                                gameschema: respo.data,
+                                playerachievements: respons.data,
+                                globalachievements: respon.data,
+                                loggedIn
+                            })
+                            console.log(this.state);  
+                            })
+                        ):(
+                            this.setState({
                             newsinfo: resp.data[0],
                             gameschema: respo.data,
                             globalachievements: respon.data,
                             loggedIn
                         })
-                        console.log(this.state);
+                        )
+                        
                     })
             }) 
         })
@@ -76,10 +90,18 @@ class SearchResults extends Component {
                     <Grid item xs={6} style={styles.paperRight}><Paper>
                         <h4>Achievements </h4>
                         {this.state.globalachievements.length ? (
-                            <ul>
+                            this.state.loggedIn ? (
+                                <ul>
                         {this.state.gameschema.availableGameStats.achievements.map(a=>(
-                            <Achievement name={a.displayName} description={a.description} icon={a.icon} percent={this.state.globalachievements.find(o=> o.name===a.name)}/>
+                            <Achievement name={a.displayName} key={a.name} description={a.description} icon={a.icon} percent={this.state.globalachievements.find(o=> o.name===a.name)} achieved={this.state.playerachievements.find(o=> o.apiname===a.name).achieved}/>
                         ))}</ul>
+                            ):(
+                                <ul>
+                        {this.state.gameschema.availableGameStats.achievements.map(a=>(
+                            <Achievement name={a.displayName} key={a.name} description={a.description} icon={a.icon} percent={this.state.globalachievements.find(o=> o.name===a.name)}/>
+                        ))}</ul>
+                            )
+                            
                         ):(
                             <p>No Achievements found...</p>
                         )}

@@ -48,6 +48,14 @@ export default {
   },
   getRecentlyPlayed: function(){
     return axios.get("/api/steam/getrecentlyplayed");
-  }
+  },
+  steamLogout: function(){
+    return axios.get("/auth/logout");
+  },
+  getPlayerAchievements: function(app){
+    return axios.post("/api/steam/getplayerachievements",{
+      app
+    });
+  },
  
 };

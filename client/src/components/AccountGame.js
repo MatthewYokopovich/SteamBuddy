@@ -7,6 +7,7 @@ class AccountGame extends Component{
             <li style={{
                 borderStyle: "solid",
                 borderWidth: 1,
+                borderColor: "blue"
             }}>
                 <img src={this.props.imglogo} style={{float: "left", maxWidth: "20%"}} />
                 {this.props.name ? (
@@ -14,7 +15,7 @@ class AccountGame extends Component{
                 ):(
                     <h5>Name not found...</h5>   
                 )}
-                <p>You have played for {(this.props.playtime/60).toFixed()} hour(s)</p>
+                <p>You have played for {(this.props.playtime/60).toFixed(1)} hour(s) total.</p>
             </li>
         )
     }
