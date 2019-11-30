@@ -16,7 +16,7 @@ router.get('/auth/steam/return',
 passport.authenticate('steam'),
     function(request, response) {
         // console.log(request.user);
-        response.redirect("http://localhost:3000/loggedin")
+        response.redirect("https://stark-wildwood-54419.herokuapp.com/loggedin")
 });
 router.post('/auth/logout', function(request, response) {
   request.logout();
