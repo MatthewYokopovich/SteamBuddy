@@ -1,5 +1,4 @@
 const path = require("path");
-const axios = require("axios");
 const router = require("express").Router();
 const passport = require('passport');
 const apiRoutes = require("./api");
@@ -16,7 +15,7 @@ router.get('/auth/steam/return',
 passport.authenticate('steam'),
     function(request, response) {
         // console.log(request.user);
-        response.redirect("https://stark-wildwood-54419.herokuapp.com/loggedin")
+        response.redirect("https://stark-wildwood-54419.herokuapp.com/")
 });
 router.post('/auth/logout', function(request, response) {
   request.logout();
