@@ -5,7 +5,7 @@ class SteamIcon extends Component{
 
     render(){
         return(
-            <Icon>
+            <Icon style={{fontSize: 50}}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" />
             </Icon>
         )
