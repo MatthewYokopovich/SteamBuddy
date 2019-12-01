@@ -8,6 +8,7 @@ import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import API from "../utils/API";
+import SteamIcon from "../components/SteamIcon";
 
 const theme = createMuiTheme();
 class Nav extends Component{
@@ -29,6 +30,13 @@ class Nav extends Component{
     return (
     <AppBar position="static">
     <Toolbar>
+      <IconButton
+        color="inherit"
+        aria-label="Menu"
+        style={{marginRight: theme.spacing(2)}}
+      >
+        <SteamIcon />
+      </IconButton>
       <Typography variant="h3" color="inherit">
       <Link href="/" color="inherit"  style={{margin: theme.spacing(1)}}>
         SteamBuddy
