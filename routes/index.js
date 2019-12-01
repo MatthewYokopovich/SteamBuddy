@@ -16,6 +16,7 @@ passport.authenticate('steam'),
     function(request, response) {
         response.redirect("/");
 });
+
 router.post('/auth/logout', function(request, response) {
   request.logout();
   console.log("logout");
@@ -23,6 +24,7 @@ router.post('/auth/logout', function(request, response) {
   // Where they came from or the site root are good choices.
   response.redirect(request.get('/'));
 });
+
 router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
