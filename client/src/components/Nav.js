@@ -29,13 +29,6 @@ class Nav extends Component{
     return (
     <AppBar position="static">
     <Toolbar>
-      <IconButton
-        color="inherit"
-        aria-label="Menu"
-        style={{marginRight: theme.spacing(2)}}
-      >
-        <MenuIcon />
-      </IconButton>
       <Typography variant="h3" color="inherit">
       <Link href="/" color="inherit"  style={{margin: theme.spacing(1)}}>
         SteamBuddy
