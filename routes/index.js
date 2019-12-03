@@ -2,6 +2,7 @@ const path = require("path");
 const router = require("express").Router();
 const passport = require('passport');
 const apiRoutes = require("./api");
+const axios = require("axios");
 
 // API Routes
 
@@ -14,7 +15,14 @@ router.post('/auth/steam',
 router.get('/auth/steam/return',  
 passport.authenticate('steam'),
     function(request, response) {
+      axios.post("/api/user/find", {
+        steamId: request.user.steamId,
+        favorites: []
+      }).then(resp=>{
+        console.log(resp);
         response.redirect("/");
+      })
+        
 });
 
 router.post('/auth/logout', function(request, response) {

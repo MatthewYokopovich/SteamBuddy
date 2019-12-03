@@ -57,5 +57,20 @@ export default {
       app
     });
   },
+  getUserDB: function(id){
+    return axios.post("/api/user/find", {
+      id
+    });
+  },
+  createUserDB: function(user){
+    return axios.put("/api/user/create",{
+      user
+    });
+  },
+  updateUserDB: function(user){
+    return axios.put("/api/user/update", {
+      user
+    });
+  }
  
 };

@@ -36,18 +36,4 @@ class App extends Component {
   }
 }
 
-// function App() {
-//   return (
-//     <Router>
-//       <Nav />
-//       <Switch>
-//       <Route exact path="/account" component={Account} />
-//       <Route exact path="/search" component={Search} />
-//       <Route exact path="/search/:appid" component={SearchResults} />
-//       <Route component={Home} />
-//       </Switch>
-//     </Router>
-//   );
-// }
-
 export default App;
