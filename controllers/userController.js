@@ -2,12 +2,13 @@ const db = require("../models");
 
 module.exports = {
     findUser: function(req, res){
-        console.log(req);
+        db.User.find(req.query).then(dbUser=> res.json(dbUser));
     },
     createUser: function(req, res){
-        console.log(req);
+        db.User.create(req.body).then(dbUser => res.json(dbUser));
     },
     updateUser: function(req, res){
-        console.log(req);
+        db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+        .then(dbModel => res.json(dbModel));
     }
 };
