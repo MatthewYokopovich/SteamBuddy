@@ -2,7 +2,7 @@ const db = require("../models");
 
 module.exports = {
     findUser: function(req, res){
-        db.User.find(req.query).then(dbUser=> res.json(dbUser));
+        db.User.find(req.steamId).then(dbUser=> res.json(dbUser));
     },
     createUser: function(req, res){
         db.User.create(req.body).then(dbUser => res.json(dbUser));
