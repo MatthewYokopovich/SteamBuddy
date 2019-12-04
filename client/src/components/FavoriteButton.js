@@ -44,7 +44,7 @@ class FavoriteButton extends Component{
 
     render(){
         return(
-            this.props.favorites.find(o=>o===this.props.appid) ?(
+            this.state.favorites.find(o=>o===this.props.appid) ?(
                 <form>
             <input name="Unfavorite" value="Unfavorite" type="button" alt="Unfavorite this app" onClick={this.handleUnfavorite} />
             </form>
