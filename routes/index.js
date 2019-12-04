@@ -15,6 +15,7 @@ router.post('/auth/steam',
 router.get('/auth/steam/return',  
 passport.authenticate('steam'),
     function(request, response) {
+      console.log(request.user.steamId);
       axios.post("/api/user/find", {
         steamId: request.user.steamId
       }).then(resp=>{
