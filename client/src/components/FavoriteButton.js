@@ -28,7 +28,7 @@ class FavoriteButton extends Component{
     }
 
     handleFavorite = ()=>{
-        let newfaves = this.props.favorites;
+        let newfaves = this.state.favorites;
         newfaves.push(this.props.appid);
         API.updateUserDB({
             steamId: this.state.steamid,
