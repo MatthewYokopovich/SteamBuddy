@@ -3,19 +3,21 @@ import API from "../utils/API";
 
 class FavoriteButton extends Component{
     state={
-        user: {}
+        favorites: [],
+        steamid: null
     }
 
     componentDidMount(){
-        console.log(this.props.userDB);
+        console.log(this.props.favorites);
         this.setState({
-            user: this.props.userDB
+            favorites: this.props.favorites,
+            steamid: this.props.steamid
         })
     }
     handleUnfavorite = ()=>{
-        let newfaves = this.props.userDB.favorites.filter(e=>e!==this.props.appid);
+        let newfaves = this.state.favorites.filter(e=>e!==this.props.appid);
         API.updateUserDB({
-            steamId: this.props.userDB.steamId,
+            steamId: this.state.steamid,
             favorites: newfaves
         }).then(res=>{
             this.setState({
@@ -25,7 +27,7 @@ class FavoriteButton extends Component{
     }
 
     handleFavorite = ()=>{
-        let newfaves = this.props.userDB.favorites;
+        let newfaves = this.props.favorites;
         newfaves.push(this.props.appid);
         API.updateUserDB({
             steamId: this.state.user.steamId,
@@ -40,7 +42,7 @@ class FavoriteButton extends Component{
 
     render(){
         return(
-            this.props.userDB.favorites.find(o=>o===this.props.appid) ?(
+            this.props.favorites.find(o=>o===this.props.appid) ?(
                 <form>
             <input name="Unfavorite" value="Unfavorite" type="button" alt="Unfavorite this app" onClick={this.handleUnfavorite} />
             </form>
