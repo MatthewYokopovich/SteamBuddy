@@ -86,7 +86,7 @@ class SearchResults extends Component {
                     <div>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
                     {this.state.loggedIn ? (
-                        // <FavoriteButton appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} />
+                        <FavoriteButton appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} />
                     ):(
                         <p> </p>
                     )}
