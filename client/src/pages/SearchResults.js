@@ -57,7 +57,7 @@ class SearchResults extends Component {
                                 gameschema: respo.data,
                                 playerachievements: respons.data,
                                 globalachievements: respon.data,
-                                userDB: responses.data[0],
+                                userDB: responses.data,
                                 loggedIn
                             })
                             console.log(this.state);  
