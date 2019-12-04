@@ -15,24 +15,7 @@ router.post('/auth/steam',
 router.get('/auth/steam/return',  
 passport.authenticate('steam'),
     function(request, response) {
-      console.log(request.user.steamId);
-      axios.post("/api/user/find", {
-        steamId: request.user.steamId
-      }).then(resp=>{
-        console.log(resp.steamId +"test1");
-        if(!resp.steamId){
-          axios.put("/api/user/create", {
-            steamId: request.user.steamId,
-            favorites: []
-          }).then(respo=>{
-            console.log(respo+"test2");
-            response.redirect("/");
-          })
-        }
-        else{
           response.redirect("/");
-        }
-      })
 });
 
 router.post('/auth/logout', function(request, response) {

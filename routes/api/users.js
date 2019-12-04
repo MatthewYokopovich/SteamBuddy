@@ -1,8 +1,15 @@
 const router = require("express").Router();
-const userController = require("../../controllers/userController");
+const db = require("../models");
 
-router.route("/find").post(userController.findUser);
-router.route("/create").put(userController.createUser);
-router.route("/update").post(userController.updateUser);
+router.route("/find").post((req, res)=>{
+    db.User.find(req.steamId).then(dbUser=> res.json(dbUser));
+});
+router.route("/create").put((req, res)=>{
+    db.User.create(req.body).then(dbUser => res.json(dbUser));
+});
+router.route("/update").post((req, res)=>{
+    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+        .then(dbModel => res.json(dbModel));
+});
 
 module.exports = router;
