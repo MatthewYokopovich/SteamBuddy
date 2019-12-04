@@ -2,7 +2,9 @@ const router = require("express").Router();
 const db = require("../../models");
 
 router.route("/find").post((req, res)=>{
-    db.User.find(req.steamId).then(dbUser=> res.json(dbUser));
+    db.User.find({
+        steamId: req.body.steamId
+    }).then(dbUser=> res.json(dbUser));
 });
 router.route("/create").put((req, res)=>{
     db.User.create(req.body).then(dbUser => res.json(dbUser));

@@ -35,8 +35,16 @@ class Home extends Component{
                     API.getUserFriends().then(response=>{
                         API.getUserData(response.data).then(respo=>{
                             API.getMyData().then(respon=>{
-                                API.getUserDB(respon.data[0].steamid).then(responses=>{
+                                API.getUserDB({
+                                    steamId: respon.data[0].steamid
+                                }).then(responses=>{
                                     console.log(responses.data);
+                                    API.createUserDB({
+                                        steamId: respon.data[0].steamid,
+                                        favorites: []
+                                    }).then(responsest=>{
+                                        console.log(responsest.data);
+                                    })
                                 })
                                 this.setState({
                                 appnews: res.data,
