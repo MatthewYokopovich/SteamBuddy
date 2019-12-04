@@ -11,7 +11,7 @@ router.route("/create").put((req, res)=>{
     console.log(req.body.user);
     db.User.create(req.body.user).then(dbUser => res.json(dbUser));
 });
-router.route("/update").post((req, res)=>{
+router.route("/update").put((req, res)=>{
     console.log(req.body.user);
     db.User.findOneAndUpdate({ steamId: req.body.user.steamId}, {
         $set: {
