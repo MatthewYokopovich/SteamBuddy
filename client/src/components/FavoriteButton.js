@@ -21,9 +21,9 @@ class FavoriteButton extends Component{
             favorites: newfaves
         }).then(res=>{
             console.log(res.data);
-            // this.setState({
-            //     user: res.data
-            // })
+            this.setState({
+                user: res.data
+            })
         })
     }
 
@@ -34,6 +34,7 @@ class FavoriteButton extends Component{
             steamId: this.state.steamid,
             favorites: newfaves
         }).then(res=>{
+            console.log(res.data);
             this.setState({
                 user: res.data
             })
