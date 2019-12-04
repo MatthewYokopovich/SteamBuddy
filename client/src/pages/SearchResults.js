@@ -4,6 +4,7 @@ import NewsItem from "../components/NewsItem";
 import Grid from "@material-ui/core/Grid";
 import Paper from '@material-ui/core/Paper';
 import Achievement from "../components/Achievement";
+import FavoriteButton from "../components/FavoriteButton";
 
 const styles = {
     div:{
@@ -34,6 +35,7 @@ class SearchResults extends Component {
         gameschema: {},
         playerachievements: [],
         globalachievements: [],
+        userDB: {},
         loggedIn: false,
     }
 
@@ -47,14 +49,19 @@ class SearchResults extends Component {
                     API.getAchievementData(appid).then(respon=>{
                         loggedIn ?(
                             API.getPlayerAchievements(appid).then(respons=>{
-                              this.setState({
+                                API.getMyData().then(response=>{
+                                    API.getUserDB(response.data[0].steamid).then(responses=>{
+                                        this.setState({
                                 newsinfo: resp.data[0],
                                 gameschema: respo.data,
                                 playerachievements: respons.data,
                                 globalachievements: respon.data,
+                                userDB: responses.data[0],
                                 loggedIn
                             })
                             console.log(this.state);  
+                                    })
+                                })
                             })
                         ):(
                             this.setState({
@@ -77,6 +84,11 @@ class SearchResults extends Component {
                 {this.state.newsinfo.appname ? (
                     <div>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
+                    {this.state.loggedIn ? (
+                        <FavoriteButton appid={this.state.newsinfo.appid} userDB={this.state.userDB} />
+                    ):(
+                        <p> </p>
+                    )}
                     <div style={styles.div}>
                         
                     <Grid item xs={6} style={styles.paperLeft}><Paper>

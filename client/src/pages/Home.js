@@ -78,9 +78,7 @@ class Home extends Component{
                 loggedIn
             }); 
                 }
-            
           })
-        
         })
     }
     render(){
