@@ -112,6 +112,7 @@ router.route("/getplayerachievements").post((req, res)=>{
     res.json(resp.data.playerstats.achievements);
   }).catch(err=>{
     console.log(err);
+    res.send(err);
   })
 })
 module.exports = router;

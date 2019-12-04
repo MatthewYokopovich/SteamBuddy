@@ -22,7 +22,7 @@ class FavoriteButton extends Component{
         }).then(res=>{
             console.log(res.data);
             this.setState({
-                user: res.data
+                favorites: res.data.favorites
             })
         })
     }
@@ -36,7 +36,7 @@ class FavoriteButton extends Component{
         }).then(res=>{
             console.log(res.data);
             this.setState({
-                user: res.data
+                favorites: res.data.favorites
             })
         })
     }

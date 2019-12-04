@@ -5,6 +5,7 @@ import API from "../utils/API";
 import Game from "../components/Game";
 import Friend from "../components/Friend";
 import User from "../components/User";
+import FavoriteGame from "../components/FavoriteGame";
 
 
 const leftPaper = {
@@ -21,7 +22,6 @@ class Home extends Component{
 
     state={
         appnews: [],
-        applist: [],
         friends: [],
         userdata: {},
         userDB: {},
@@ -89,6 +89,16 @@ class Home extends Component{
                         {this.state.userdata.steamid ? (
                             <div>
                                 <User id={this.state.userdata.steamid} name={this.state.userdata.personaname} imgsrc={this.state.userdata.avatarmedium} url={this.state.userdata.profileurl} pstate={this.state.userdata.personastate}/>
+                                {this.state.userDB.favorites.length ? (
+                                    <div><h3>Favorites</h3>
+                                         <ul>
+                                        {this.state.userDB.favorites.map(f=>{
+                                            return <FavoriteGame appid={f}/>
+                                        })}
+                                    </ul></div>
+                                ):(
+                                    <div> No favorites found.</div>
+                                )}
                             </div>
                         ): (
                             <div>
@@ -115,13 +125,14 @@ class Home extends Component{
                 <Grid item xs={3}>
                     <Paper style={rightPaper}>
                         {this.state.friends.length ? (
+                            <div><h3>Friends</h3>
                             <ul>
                                 {this.state.friends.map(f=>{
                                     return(
                                        <Friend key={f.steamid} id={f.steamid} name={f.personaname} imgsrc={f.avatarmedium} url={f.profileurl} pstate={f.personastate}/>
                                     )
                                 })}
-                            </ul>
+                            </ul></div>
                         ):(
                             <div>
                                 No Friends found </div>
