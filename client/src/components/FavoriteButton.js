@@ -20,9 +20,10 @@ class FavoriteButton extends Component{
             steamId: this.state.steamid,
             favorites: newfaves
         }).then(res=>{
-            this.setState({
-                user: res.data
-            })
+            console.log(res.data);
+            // this.setState({
+            //     user: res.data
+            // })
         })
     }
 
@@ -30,7 +31,7 @@ class FavoriteButton extends Component{
         let newfaves = this.props.favorites;
         newfaves.push(this.props.appid);
         API.updateUserDB({
-            steamId: this.state.user.steamId,
+            steamId: this.state.steamid,
             favorites: newfaves
         }).then(res=>{
             this.setState({
