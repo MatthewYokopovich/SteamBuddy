@@ -84,11 +84,11 @@ class SearchResults extends Component {
                 {this.state.newsinfo.appname ? (
                     <div>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
-                    {this.state.loggedIn ? (
-                        <FavoriteButton appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} />
+                    {/* {this.state.loggedIn ? (
+                        // <FavoriteButton appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} />
                     ):(
                         <p> </p>
-                    )}
+                    )} */}
                     <div style={styles.div}>
                         
                     <Grid item xs={6} style={styles.paperLeft}><Paper>
