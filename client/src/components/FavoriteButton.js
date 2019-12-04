@@ -7,6 +7,7 @@ class FavoriteButton extends Component{
     }
 
     componentDidMount(){
+        console.log(this.props.userDB);
         this.setState({
             user: this.props.userDB
         })
