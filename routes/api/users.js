@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const db = require("../models");
+const db = require("../../models");
 
 router.route("/find").post((req, res)=>{
     db.User.find(req.steamId).then(dbUser=> res.json(dbUser));
