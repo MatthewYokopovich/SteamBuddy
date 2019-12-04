@@ -7,6 +7,7 @@ router.route("/find").post((req, res)=>{
     }).then(dbUser=> res.json(dbUser));
 });
 router.route("/create").put((req, res)=>{
+    console.log(req.body);
     db.User.create(req.body).then(dbUser => res.json(dbUser));
 });
 router.route("/update").post((req, res)=>{
