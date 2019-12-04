@@ -28,6 +28,7 @@ const styles = {
     }
   };
 
+
 class SearchResults extends Component {
 
     state={
@@ -37,6 +38,14 @@ class SearchResults extends Component {
         globalachievements: [],
         userDB: {},
         loggedIn: false,
+    }
+
+    handleFavorite = ()=>{
+        API.getUserDB(this.state.userDB.steamId).then(res=>{
+            this.setState({
+                userDB: res.data[0]
+            })
+        })
     }
 
     componentDidMount(){
@@ -86,7 +95,7 @@ class SearchResults extends Component {
                     <div>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
                     {this.state.loggedIn ? (
-                        <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} />
+                        <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} onClick={this.handleFavorite}/>
                     ):(
                         <p> </p>
                     )}
