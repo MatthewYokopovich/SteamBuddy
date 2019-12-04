@@ -39,6 +39,7 @@ class Home extends Component{
                                 API.getUserDB({
                                     steamId: respon.data[0].steamid
                                 }).then(responses=>{
+                                    console.log(responses.data);
                                    if(!responses.data.length){
                                     API.createUserDB({
                                         steamId: respon.data[0].steamid,
