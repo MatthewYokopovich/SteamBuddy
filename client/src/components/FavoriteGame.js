@@ -19,7 +19,7 @@ class FavoriteGame extends Component {
         return (
             <li>
                 {this.state.app.appname ? (
-                <a href={"/search/"+this.state.app.appid}><p>this.state.app.appname</p></a>
+                <a href={"/search/"+this.state.app.appid}><p>{this.state.app.appname}</p></a>
                 ):(
                     <p>error </p>
                 )}
