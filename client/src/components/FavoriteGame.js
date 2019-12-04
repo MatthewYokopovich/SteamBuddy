@@ -7,7 +7,7 @@ class FavoriteGame extends Component {
     }
 
     componentDidMount(){
-        appid = this.props.appid;
+        let appid = this.props.appid;
         API.getNews([appid]).then(res=>{
             this.setState({
                 app: res.data[0]
