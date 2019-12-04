@@ -24,6 +24,7 @@ class Home extends Component{
         applist: [],
         friends: [],
         userdata: {},
+        userDB: {},
         loggedIn: false,
     }
     componentDidMount(){
@@ -38,21 +39,33 @@ class Home extends Component{
                                 API.getUserDB({
                                     steamId: respon.data[0].steamid
                                 }).then(responses=>{
-                                    console.log(responses.data);
+                                   if(!responses.data.length){
                                     API.createUserDB({
                                         steamId: respon.data[0].steamid,
                                         favorites: []
                                     }).then(responsest=>{
-                                        console.log(responsest.data);
+                                        this.setState({
+                                            appnews: res.data,
+                                            friends: respo.data,
+                                            userdata: respon.data[0],
+                                            userDB: responsest.data,
+                                            loggedIn
+                                            })
+                                            console.log(this.state);
                                     })
+                                   }
+                                   else{
+                                       this.setState({
+                                        appnews: res.data,
+                                        friends: respo.data,
+                                        userdata: respon.data[0],
+                                        userDB: responses.data[0],
+                                        loggedIn
+                                        })
+                                        console.log(this.state);
+                                   }
+                                    
                                 })
-                                this.setState({
-                                appnews: res.data,
-                                friends: respo.data,
-                                userdata: respon.data[0],
-                                loggedIn
-                                })
-                                console.log(this.state);
                             })
                         });
                         
