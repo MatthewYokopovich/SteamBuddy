@@ -50,6 +50,7 @@ class SearchResults extends Component {
                         loggedIn ?(
                             API.getPlayerAchievements(appid).then(respons=>{
                                 API.getMyData().then(response=>{
+                                    console.log(response.data);
                                     API.getUserDB(response.data[0].steamid).then(responses=>{
                                         this.setState({
                                 newsinfo: resp.data[0],
