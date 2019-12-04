@@ -35,6 +35,9 @@ class Home extends Component{
                     API.getUserFriends().then(response=>{
                         API.getUserData(response.data).then(respo=>{
                             API.getMyData().then(respon=>{
+                                API.getUserDB(respon.data[0].steamid).then(responses=>{
+                                    console.log(responses.data);
+                                })
                                 this.setState({
                                 appnews: res.data,
                                 friends: respo.data,
