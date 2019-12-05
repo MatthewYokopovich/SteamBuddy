@@ -18,12 +18,13 @@ class FavoriteButton extends Component{
         API.updateUserDB({
             steamId: this.state.steamid,
             favorites: newfaves
-        }).then(res=>{
-            console.log(res.data);
-            this.setState({
-                favorites: res.data.favorites
-            })
         })
+        // .then(res=>{
+        //     console.log(res.data);
+        //     this.setState({
+        //         favorites: res.data.favorites
+        //     })
+        // })
     }
 
     handleFavorite = ()=>{
@@ -32,12 +33,13 @@ class FavoriteButton extends Component{
         API.updateUserDB({
             steamId: this.state.steamid,
             favorites: newfaves
-        }).then(res=>{
-            console.log(res.data);
-            this.setState({
-                favorites: res.data.favorites
-            })
         })
+        // .then(res=>{
+        //     console.log(res.data);
+        //     this.setState({
+        //         favorites: res.data.favorites
+        //     })
+        // })
     }
 
 
