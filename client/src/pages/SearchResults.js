@@ -92,7 +92,7 @@ class SearchResults extends Component {
         return (
             <Grid container item spacing={1} direction={"row"} justify={"center"} alignItems={"center"}>
                 {this.state.newsinfo.appname ? (
-                    <div>
+                    <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"}>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
                     {this.state.loggedIn ? (
                         <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} onClick={this.handleFavorite}/>
@@ -130,7 +130,7 @@ class SearchResults extends Component {
                         
                     </Paper>
                     </Grid>
-                    </div></div>
+                    </div></Grid>
                 ) : (
                     <div> 
                         Loading...
