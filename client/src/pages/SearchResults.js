@@ -19,14 +19,18 @@ const styles = {
       height: '100%',
       margin: 10,
       textAlign: 'center',
-      padding: 10
+      padding: 10,
+      color: "#8F98A0",
+          backgroundColor: "#171a21"
     },
     paperRight:{
       height: 600,
       flex: 4,
       margin: 10,
       textAlign: 'center',
-    }
+      color: "#8F98A0",
+          backgroundColor: "#171a21"
+    },
   };
 
 
@@ -40,11 +44,6 @@ class SearchResults extends Component {
         userDB: {},
         loggedIn: false,
     }
-
-    // handleFavorite = ()=>{
-    //     console.log("search results test");
-    //     this.props.history.push("/");
-    // }
 
     componentDidMount(){
         let appid = this.props.match.params.appid;
