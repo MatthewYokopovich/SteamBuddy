@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 
+const formStyle = {
+    alignItems: "center",
+        justifyContent: "center"
+}
+
 class FavoriteButton extends Component{
     state={
         favorites: [],
@@ -49,11 +54,11 @@ class FavoriteButton extends Component{
     render(){
         return(
             this.state.favorites.find(o=>o===this.props.appid) ?(
-                <form>
+                <form style={formStyle}>
             <input name="Unfavorite" value="Unfavorite" type="button" alt="Unfavorite this app" onClick={this.handleUnfavorite} />
             </form>
             ):(
-                <form>
+                <form style={formStyle}>
             <input name="Favorite" value="Favorite" type="button" alt="Favorite this app" onClick={this.handleFavorite} />
             </form>
             )
