@@ -40,13 +40,13 @@ class SearchResults extends Component {
         loggedIn: false,
     }
 
-    handleFavorite = ()=>{
-        API.getUserDB(this.state.userDB.steamId).then(res=>{
-            this.setState({
-                userDB: res.data[0]
-            })
-        })
-    }
+    // handleFavorite = ()=>{
+    //     API.getUserDB(this.state.userDB.steamId).then(res=>{
+    //         this.setState({
+    //             userDB: res.data[0]
+    //         })
+    //     })
+    // }
 
     componentDidMount(){
         let appid = this.props.match.params.appid;
@@ -95,7 +95,7 @@ class SearchResults extends Component {
                     <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"}>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
                     {this.state.loggedIn ? (
-                        <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} onClick={this.handleFavorite}/>
+                        <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} />
                     ):(
                         <p> </p>
                     )}
@@ -140,5 +140,7 @@ class SearchResults extends Component {
         )
     }
 }
+
+
 
 export default SearchResults;
