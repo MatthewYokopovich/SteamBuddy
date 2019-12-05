@@ -8,6 +8,7 @@ class FavoriteButton extends Component{
     }
 
     componentDidMount(){
+        console.log(this.props.history);
         this.setState({
             favorites: this.props.favorites,
             steamid: this.props.steamid
@@ -19,12 +20,12 @@ class FavoriteButton extends Component{
             steamId: this.state.steamid,
             favorites: newfaves
         })
-        // .then(res=>{
-        //     console.log(res.data);
-        //     this.setState({
-        //         favorites: res.data.favorites
-        //     })
-        // })
+        .then(res=>{
+            console.log(res.data);
+            this.setState({
+                favorites: res.data.favorites
+            })
+        })
     }
 
     handleFavorite = ()=>{
@@ -34,12 +35,12 @@ class FavoriteButton extends Component{
             steamId: this.state.steamid,
             favorites: newfaves
         })
-        // .then(res=>{
-        //     console.log(res.data);
-        //     this.setState({
-        //         favorites: res.data.favorites
-        //     })
-        // })
+        .then(res=>{
+            console.log(res.data);
+            this.setState({
+                favorites: res.data.favorites
+            })
+        })
     }
 
 
