@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import  { Redirect } from 'react-router-dom'
 import API from "../utils/API";
 import NewsItem from "../components/NewsItem";
 import Grid from "@material-ui/core/Grid";
@@ -40,17 +41,14 @@ class SearchResults extends Component {
         loggedIn: false,
     }
 
-    // handleFavorite = ()=>{
-    //     API.getUserDB(this.state.userDB.steamId).then(res=>{
-    //         this.setState({
-    //             userDB: res.data[0]
-    //         })
-    //     })
-    // }
+    handleFavorite = ()=>{
+        return
+    }
 
     componentDidMount(){
         let appid = this.props.match.params.appid;
         let loggedIn = false;
+        console.log(this.props.history);
         API.checkLogin().then(r=>{
             loggedIn = r.data;
             API.getSearchNews(appid).then(resp=>{
@@ -95,7 +93,7 @@ class SearchResults extends Component {
                     <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"}>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
                     {this.state.loggedIn ? (
-                        <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} />
+                        <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} onClick={this.handleFavorite}/>
                     ):(
                         <p> </p>
                     )}
@@ -140,7 +138,5 @@ class SearchResults extends Component {
         )
     }
 }
-
-
 
 export default SearchResults;
