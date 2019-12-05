@@ -8,7 +8,6 @@ class FavoriteButton extends Component{
     }
 
     componentDidMount(){
-        console.log(this.props.favorites);
         this.setState({
             favorites: this.props.favorites,
             steamid: this.props.steamid
