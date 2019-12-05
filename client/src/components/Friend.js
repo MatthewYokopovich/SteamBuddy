@@ -34,7 +34,7 @@ class Friend extends Component{
                 borderStyle: "solid",
                 borderWidth: 1,
             }}>
-                <a href={this.props.url}><img src={this.props.imgsrc} style={{float: "left", borderStyle: "solid",
+                <a href={this.props.url} style={{color: "inherit"}}><img src={this.props.imgsrc} style={{float: "left", borderStyle: "solid",
                 borderWidth: 1, borderColor: "#57cbde"}}/>
                 <h3>{this.props.name}</h3></a>
                 {this.renderState()}
