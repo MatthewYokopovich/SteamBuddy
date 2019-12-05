@@ -18,7 +18,7 @@ router.route("/update").put((req, res)=>{
             favorites: req.body.user.favorites
         }}, function(err, doc){
             if (err) throw err;
-            res.redirect("/");
+            res.json(doc);
     })
 });
 

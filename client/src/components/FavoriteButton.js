@@ -25,6 +25,7 @@ class FavoriteButton extends Component{
             this.setState({
                 favorites: res.data.favorites
             })
+            this.props.history.push("/");
         })
     }
 
@@ -40,6 +41,7 @@ class FavoriteButton extends Component{
             this.setState({
                 favorites: res.data.favorites
             })
+            this.props.history.push("/");
         })
     }
 

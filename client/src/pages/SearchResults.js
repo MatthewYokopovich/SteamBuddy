@@ -41,10 +41,10 @@ class SearchResults extends Component {
         loggedIn: false,
     }
 
-    handleFavorite = ()=>{
-        console.log("search results test");
-        this.props.history.push("/");
-    }
+    // handleFavorite = ()=>{
+    //     console.log("search results test");
+    //     this.props.history.push("/");
+    // }
 
     componentDidMount(){
         let appid = this.props.match.params.appid;
@@ -93,7 +93,7 @@ class SearchResults extends Component {
                     <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"}>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
                     {this.state.loggedIn ? (
-                        <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} history={this.props.history} onClick={this.handleFavorite}/>
+                        <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} history={this.props.history} />
                     ):(
                         <p> </p>
                     )}
