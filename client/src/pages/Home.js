@@ -18,6 +18,14 @@ const titleStyle = {
     color: "#8F98A0",
     backgroundColor: "#171a21"
 }
+
+const gridStyle = {
+    color: "#8F98A0",
+      backgroundColor: "#1b2838",
+      display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+}
 class Home extends Component{
 
     state={
@@ -83,7 +91,7 @@ class Home extends Component{
     }
     render(){
         return(
-            <Grid container spacing={3}>
+            <Grid container spacing={3} style={gridStyle}>
                 <Grid item xs={3}>
                     <Paper style={paperStyle}>
                         {this.state.userdata.steamid ? (
