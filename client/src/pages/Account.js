@@ -25,7 +25,6 @@ const styles = {
       backgroundColor: "#171a21"
     },
     paperRight:{
-      height: 600,
       flex: 4,
       margin: 10,
       textAlign: 'center',
