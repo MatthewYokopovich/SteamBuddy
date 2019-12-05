@@ -27,6 +27,7 @@ const styles = {
     paperRight:{
       flex: 4,
       margin: 10,
+      padding: 10,
       textAlign: 'center',
       color: "#8F98A0",
       backgroundColor: "#171a21"
