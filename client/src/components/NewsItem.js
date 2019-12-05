@@ -18,7 +18,7 @@ return html;
     render(){
         return (
             <div>
-             <a href={this.props.url}><h4>   {this.props.title}</h4></a>
+             <a href={this.props.url} style={{color: "inherit"}}><h4>   {this.props.title}</h4></a>
              {this.props.contents ? (
                  <p> {this.convertFromHTML(this.props.contents)} </p>
              ): (

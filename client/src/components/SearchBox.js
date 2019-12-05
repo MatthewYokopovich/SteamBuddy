@@ -24,7 +24,7 @@ class SearchBox extends Component{
     render(){
         return (
             <Grid container justify={"center"}>
-            <form onSubmit={this.handleSubmit} >
+            <form onSubmit={this.handleSubmit} style={{width: "100%"}}>
             <label>
                 Search:
           <input type="text" ref={(input) => this.input = input} />

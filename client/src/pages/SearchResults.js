@@ -33,7 +33,7 @@ const styles = {
       textAlign: 'center',
       color: "#8F98A0",
         backgroundColor: "#171a21",
-        height: '100%',
+        // height: '100%',
     },
   };
 
