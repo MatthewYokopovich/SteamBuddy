@@ -100,8 +100,9 @@ class Home extends Component{
                                     <AccountGame key={g.appid} name={g.name} playtime={g.playtime_forever} imglogo={"http://media.steampowered.com/steamcommunity/public/images/apps/"+g.appid+"/"+g.img_logo_url+".jpg"} />
                                 ))}
                             </ul>
+                            <h4>Steam Logout</h4><SteamLogout />
                         </Paper>
-                        <h4>Steam Logout</h4><SteamLogout />
+                        
                         </Grid></div>
                 ):(
                     <Grid item> <Paper style={styles.loginStyle} >
