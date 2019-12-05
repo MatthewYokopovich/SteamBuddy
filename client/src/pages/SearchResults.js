@@ -8,6 +8,10 @@ import Achievement from "../components/Achievement";
 import FavoriteButton from "../components/FavoriteButton";
 
 const styles = {
+    grid:{
+        color: "#8F98A0",
+          backgroundColor: "#1b2838"
+    },
     div:{
       display: 'flex',
       flexDirection: 'row wrap',
@@ -16,7 +20,6 @@ const styles = {
     },
     paperLeft:{
       flex: 1,
-      height: '100%',
       margin: 10,
       textAlign: 'center',
       padding: 10,
@@ -29,7 +32,8 @@ const styles = {
       margin: 10,
       textAlign: 'center',
       color: "#8F98A0",
-          backgroundColor: "#171a21"
+        backgroundColor: "#171a21",
+        height: '100%',
     },
   };
 
@@ -87,9 +91,9 @@ class SearchResults extends Component {
 
     render(){
         return (
-            <Grid container item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} style={{backgroundColor: "#171a21"}}>
+            <Grid container item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} style={styles.grid}>
                 {this.state.newsinfo.appname ? (
-                    <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"}>
+                    <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} >
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
                     {this.state.loggedIn ? (
                         <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} history={this.props.history} />
@@ -98,7 +102,8 @@ class SearchResults extends Component {
                     )}
                     <div style={styles.div}>
                         
-                    <Grid item xs={6} style={styles.paperLeft}><Paper>
+                    <Grid item xs={6} >
+                        <Paper style={styles.paperLeft}>
                         <h4>News</h4>
                     {
                         this.state.newsinfo.newsitems.map(n=>(
@@ -106,7 +111,8 @@ class SearchResults extends Component {
                          ))
                     }</Paper>
                     </Grid>
-                    <Grid item xs={6} style={styles.paperRight}><Paper>
+                    <Grid item xs={6} >
+                        <Paper style={styles.paperRight}>
                         <h4>Achievements </h4>
                         {this.state.globalachievements.length ? (
                             this.state.loggedIn ? (

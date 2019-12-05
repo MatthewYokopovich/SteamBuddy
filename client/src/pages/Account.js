@@ -77,8 +77,8 @@ class Home extends Component{
             <Grid container>
                 {this.state.loggedIn ? (
                     <div style={styles.div}>
-                    <Grid item xs={6} style={styles.paperLeft}>
-                        <Paper>
+                    <Grid item xs={6} >
+                        <Paper style={styles.paperLeft}>
                         <h4>Games owned: {this.state.gameData.game_count}</h4>
                         <ul>
                         {this.state.gameData.games.map(g=>(
@@ -86,8 +86,8 @@ class Home extends Component{
                         ))}</ul>
                         </Paper>
                     </Grid>
-                    <Grid item xs={6} style={styles.paperRight}>
-                        <Paper>
+                    <Grid item xs={6} >
+                        <Paper style={styles.paperRight}>
                             <h4>Recently Played(last 2 weeks)</h4>
                             <ul>
                                 {this.state.recentlyplayed.games.map(g=>(
