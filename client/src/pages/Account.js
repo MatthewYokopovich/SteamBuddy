@@ -37,6 +37,13 @@ const styles = {
       backgroundColor: "#171a21",
       textAlign: 'center',
       padding: 10,
+    },
+    grid:{
+        color: "#8F98A0",
+          backgroundColor: "#1b2838",
+          display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
     }
   };
 
@@ -74,7 +81,7 @@ class Home extends Component{
 
     render(){
         return(
-            <Grid container>
+            <Grid container style={styles.grid}>
                 {this.state.loggedIn ? (
                     <div style={styles.div}>
                     <Grid item xs={6} >

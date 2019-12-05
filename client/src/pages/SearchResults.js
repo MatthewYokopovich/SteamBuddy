@@ -94,9 +94,9 @@ class SearchResults extends Component {
 
     render(){
         return (
-            <Grid container item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} style={styles.grid}>
+            <Grid container item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} >
                 {this.state.newsinfo.appname ? (
-                    <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} >
+                    <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} style={styles.grid}>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
                     {this.state.loggedIn ? (
                         <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} history={this.props.history} />

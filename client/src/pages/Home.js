@@ -23,8 +23,6 @@ const gridStyle = {
     color: "#8F98A0",
       backgroundColor: "#1b2838",
       display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
 }
 class Home extends Component{
 
