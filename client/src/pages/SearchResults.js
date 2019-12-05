@@ -14,7 +14,7 @@ const styles = {
           display: "flex",
         alignItems: "center",
         justifyContent: "center"
-        },
+    },
     div:{
       display: 'flex',
       flexDirection: 'row wrap',
@@ -96,7 +96,7 @@ class SearchResults extends Component {
         return (
             <Grid container item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} style={styles.grid}>
                 {this.state.newsinfo.appname ? (
-                    <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} style={styles.grid}>
+                    <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} >
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>
                     {this.state.loggedIn ? (
                         <FavoriteButton style={{textAlign: 'center'}} appid={this.state.newsinfo.appid} favorites={this.state.userDB.favorites} steamid={this.state.userDB.steamId} history={this.props.history} />
