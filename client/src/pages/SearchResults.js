@@ -12,7 +12,8 @@ const styles = {
         color: "#8F98A0",
           backgroundColor: "#1b2838",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        textAlign: "center"
     },
     div:{
       display: 'flex',
