@@ -42,6 +42,7 @@ class SearchResults extends Component {
     }
 
     handleFavorite = ()=>{
+        console.log("search results test");
         this.props.history.push("/");
     }
 
