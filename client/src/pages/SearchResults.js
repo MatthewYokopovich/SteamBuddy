@@ -42,7 +42,7 @@ class SearchResults extends Component {
     }
 
     handleFavorite = ()=>{
-        return
+        this.props.history.push("/");
     }
 
     componentDidMount(){
