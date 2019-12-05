@@ -6,6 +6,8 @@ import Grid from "@material-ui/core/Grid";
 import Paper from '@material-ui/core/Paper';
 import AccountGame from "../components/AccountGame";
 
+
+
 const styles = {
     div:{
       display: 'flex',
@@ -18,13 +20,23 @@ const styles = {
       height: '100%',
       margin: 10,
       textAlign: 'center',
-      padding: 10
+      padding: 10,
+      color: "#8F98A0",
+      backgroundColor: "#171a21"
     },
     paperRight:{
       height: 600,
       flex: 4,
       margin: 10,
       textAlign: 'center',
+      color: "#8F98A0",
+      backgroundColor: "#171a21"
+    },
+    loginStyle: {
+        color: "#8F98A0",
+      backgroundColor: "#171a21",
+      textAlign: 'center',
+      padding: 10,
     }
   };
 
@@ -86,7 +98,10 @@ class Home extends Component{
                         <h4>Steam Logout</h4><SteamLogout />
                         </Grid></div>
                 ):(
+                    <Grid item> <Paper style={styles.loginStyle} >
+                    <p>Please login to view your account information.</p>
                     <SteamLogin />
+                    </Paper></Grid>
                 )}
                 
             </Grid>

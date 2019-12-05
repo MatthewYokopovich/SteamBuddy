@@ -88,7 +88,7 @@ class SearchResults extends Component {
 
     render(){
         return (
-            <Grid container item spacing={1} direction={"row"} justify={"center"} alignItems={"center"}>
+            <Grid container item spacing={1} direction={"row"} justify={"center"} alignItems={"center"} style={{backgroundColor: "#171a21"}}>
                 {this.state.newsinfo.appname ? (
                     <Grid item spacing={1} direction={"row"} justify={"center"} alignItems={"center"}>
                     <h2 style={{textAlign: 'center'}}>{this.state.newsinfo.appname}</h2>

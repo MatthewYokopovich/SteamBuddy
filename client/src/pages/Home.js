@@ -8,15 +8,15 @@ import User from "../components/User";
 import FavoriteGame from "../components/FavoriteGame";
 
 
-const leftPaper = {
+const paperStyle = {
   textAlign: 'center',
+  color: "#8F98A0",
+    backgroundColor: "#171a21"
 }
-const mainPaper = {
-  textAlign: 'center',
-  color: "dark blue",
-}
-const rightPaper = {
-  textAlign: 'center',
+
+const titleStyle = {
+    color: "#8F98A0",
+    backgroundColor: "#171a21"
 }
 class Home extends Component{
 
@@ -85,7 +85,7 @@ class Home extends Component{
         return(
             <Grid container spacing={3}>
                 <Grid item xs={3}>
-                    <Paper style={leftPaper}>
+                    <Paper style={paperStyle}>
                         {this.state.userdata.steamid ? (
                             <div>
                                 <User id={this.state.userdata.steamid} name={this.state.userdata.personaname} imgsrc={this.state.userdata.avatarmedium} url={this.state.userdata.profileurl} pstate={this.state.userdata.personastate}/>
@@ -108,7 +108,8 @@ class Home extends Component{
                     </Paper>
                 </Grid>
                 <Grid item xs={6}>
-                    <Paper style={mainPaper}>
+                    <Paper style={paperStyle}>
+                        <h2>News</h2>
                         {this.state.appnews.length ? (
                             <div>
                                 {this.state.appnews.map(g=>{
@@ -123,7 +124,7 @@ class Home extends Component{
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
-                    <Paper style={rightPaper}>
+                    <Paper style={paperStyle}>
                         {this.state.friends.length ? (
                             <div><h3>Friends</h3>
                             <ul>

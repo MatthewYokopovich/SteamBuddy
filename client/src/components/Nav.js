@@ -28,7 +28,7 @@ class Nav extends Component{
   
   render(){
     return (
-    <AppBar position="static">
+    <AppBar position="static" style={{backgroundColor: "#171a21"}}>
     <Toolbar>
         <SteamIcon />
       <Typography variant="h3" color="inherit">
