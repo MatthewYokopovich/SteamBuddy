@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from '@material-ui/core/Paper';
 import Achievement from "../components/Achievement";
 import FavoriteButton from "../components/FavoriteButton";
+import Comment from "../components/Comment";
 
 const styles = {
     grid:{
@@ -46,6 +47,7 @@ class SearchResults extends Component {
     state={
         newsinfo: {},
         gameschema: {},
+        comments: [],
         playerachievements: [],
         globalachievements: [],
         userDB: {},
@@ -108,11 +110,19 @@ class SearchResults extends Component {
                     <Grid item xs={6} >
                         <Paper style={styles.paperLeft}>
                         <h4>News</h4>
-                    {
-                        this.state.newsinfo.newsitems.map(n=>(
+                    {this.state.newsinfo.newsitems.map(n=>(
                             <NewsItem title={n.title} key={n.gid} url={n.url} contents={n.contents}/>
                          ))
-                    }</Paper>
+                    }
+                    <h4>Comments</h4>
+                    {this.state.comments.length ? (
+                        this.state.comments.map(c=>(
+                            <Comment loggedIn={this.state.loggedIn} body={c.body} author={c.author} />
+                        ))
+                    ):(
+                        <p>No Comments Found...</p>
+                    )}
+                    </Paper>
                     </Grid>
                     <Grid item xs={6} >
                         <Paper style={styles.paperRight}>

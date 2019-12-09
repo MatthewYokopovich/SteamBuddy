@@ -5,7 +5,7 @@ router.route("/find").post((req, res)=>{
     console.log(req.body.id.steamId);
     db.User.find({
         steamId: req.body.id.steamId
-    }).then(dbUser=> res.json(dbUser));
+    }).populate("comments").then(dbUser=> res.json(dbUser));
 });
 router.route("/create").put((req, res)=>{
     console.log(req.body.user);

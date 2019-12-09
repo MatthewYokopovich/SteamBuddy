@@ -71,6 +71,16 @@ export default {
     return axios.put("/api/user/update", {
       user
     });
+  },
+  getCommentsByApp: function(appid){
+    return axios.post("/api/comment/findByApp", {
+      appid
+    })
+  },
+  createComment: function(comment){
+    return axios.put("/api/comment/create", {
+      comment
+    })
   }
  
 };
