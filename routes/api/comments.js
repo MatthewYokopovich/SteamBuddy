@@ -22,7 +22,7 @@ router.route("/findByApp").post((req, res)=>{
 });
 
 router.route("/delete").delete((req, res)=>{
-    console.log(req.body.comment);
+    console.log(req.body);
     db.Comment.deleteOne({
         _id: req.body.comment
     }).then(dbComment => res.json(dbComment));
