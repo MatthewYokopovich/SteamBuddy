@@ -11,6 +11,7 @@ class Comment extends Component{
             <div style={{
                 borderStyle: "solid",
                 borderWidth: 1,
+                height: 50
             }}><a href={"https://steamcommunity.com/profiles/"+this.props.author.steamId} style={{color: "inherit"}}>
                 <img src={this.props.author.imgSrc} style={{float: "left", borderStyle: "solid",
                 borderWidth: 1, borderColor: "#57cbde"}} /></a>
