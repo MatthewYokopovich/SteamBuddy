@@ -15,7 +15,7 @@ class CommentInput extends Component{
     handleSubmit = (event)=>{
         event.preventDefault();
         let newComment = {
-            author: this.state.user._id,
+            author: this.state.user,
             body: this.state.value,
             appid: this.state.appid
         }

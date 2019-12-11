@@ -128,7 +128,7 @@ class SearchResults extends Component {
                     )}
                     {this.state.loggedIn ? (
                         <div>
-                            <CommentInput user={this.state.userDB} appid={this.state.newsinfo.appid}/>
+                            <CommentInput user={this.state.userDB._id} appid={this.state.newsinfo.appid}/>
                         </div>
                     ):(
                         <div></div>
