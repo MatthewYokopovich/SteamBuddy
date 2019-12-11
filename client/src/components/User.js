@@ -33,7 +33,6 @@ class User extends Component{
             <div style={{
                 borderStyle: "solid",
                 borderWidth: 1,
-                height: "100%"
             }}>
                 <a href={this.props.url} style={{color: "inherit"}}><img src={this.props.imgsrc} style={{float: "left", borderStyle: "solid",
                 borderWidth: 1, borderColor: "#57cbde"}}/>
