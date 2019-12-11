@@ -67,7 +67,7 @@ class SearchResults extends Component {
                                 API.getMyData().then(response=>{
                                     API.getUserDB({
                                         steamId: response.data[0].steamid}).then(responses=>{
-                                            API.getCommentsByApp(resp.data.appid).then(commentResp=>{
+                                            API.getCommentsByApp(resp.data[0].appid).then(commentResp=>{
                                                 this.setState({
                                 newsinfo: resp.data[0],
                                 gameschema: respo.data,
