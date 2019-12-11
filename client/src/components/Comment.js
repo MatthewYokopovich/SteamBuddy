@@ -12,6 +12,7 @@ class Comment extends Component{
                 borderStyle: "solid",
                 borderWidth: 1,
                 textAlign: 'center',
+                justifyContent: "center",
                 height: 65
             }}><a href={"https://steamcommunity.com/profiles/"+this.props.author.steamId} style={{color: "inherit"}}>
                 <img src={this.props.author.imgSrc} style={{float: "left", borderStyle: "solid",
