@@ -13,6 +13,7 @@ class CommentInput extends Component{
     }
 
     handleSubmit = (event)=>{
+        event.preventDefault();
         let newComment = {
             author: this.state.user._id,
             body: this.state.value,
