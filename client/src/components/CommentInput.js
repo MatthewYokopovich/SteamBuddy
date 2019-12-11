@@ -28,6 +28,7 @@ class CommentInput extends Component{
                     Add a comment:
                     <input type="text" name="comment" value={this.state.value} onChange={this.handleInputChange} />
                 </lable>
+                <input type="submit" value="Submit" />
             </form>
         )
     }
