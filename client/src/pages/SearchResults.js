@@ -75,10 +75,10 @@ class SearchResults extends Component {
                                 playerachievements: respons.data,
                                 globalachievements: respon.data,
                                 userDB: responses.data[0],
-                                loggedIn
+                                loggedIn,
+                                comments: commentResp.data
                             })
                             console.log(this.state);  
-                            console.log(commentResp.data);
                                             })
                                         
                                     })
@@ -89,7 +89,9 @@ class SearchResults extends Component {
                             newsinfo: resp.data[0],
                             gameschema: respo.data,
                             globalachievements: respon.data,
-                            loggedIn
+                            loggedIn,
+                            comments: commentResp.data
+
                         })
                         )
                         })
@@ -126,7 +128,7 @@ class SearchResults extends Component {
                     <h4>Comments</h4>
                     {this.state.comments.length ? (
                         this.state.comments.map(c=>(
-                            <Comment loggedIn={this.state.loggedIn} body={c.body} author={c.author} />
+                            <Comment loggedIn={this.state.loggedIn} body={c.body} author={c.author} user={this.state.userDB._id} />
                         ))
                     ):(
                         <p>No Comments Found...</p>
