@@ -77,6 +77,7 @@ class SearchResults extends Component {
                                 loggedIn
                             })
                             console.log(this.state);  
+                            console.log(commentResp.data);
                                             })
                                         
                                     })
