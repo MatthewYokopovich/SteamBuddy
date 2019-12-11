@@ -49,6 +49,7 @@ class Home extends Component{
                                    if(!responses.data.length){
                                     API.createUserDB({
                                         steamId: respon.data[0].steamid,
+                                        currentName: respon.data[0].personaname,
                                         favorites: []
                                     }).then(responsest=>{
                                         this.setState({

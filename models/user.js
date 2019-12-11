@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     steamId: String,
+    currentName: String,
     favorites: [],
     comments: [{
         type: Schema.Types.ObjectId, ref: "Comment"    }]
