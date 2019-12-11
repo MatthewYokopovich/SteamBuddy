@@ -83,7 +83,7 @@ export default {
     })
   },
   deleteComment: function(comment){
-    return axios.delete("/api/comment/delete", {
+    return axios.post("/api/comment/delete", {
       comment
     });
   }

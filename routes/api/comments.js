@@ -21,7 +21,7 @@ router.route("/findByApp").post((req, res)=>{
     }).populate("author").then(dbComment => res.json(dbComment));
 });
 
-router.route("/delete").delete((req, res)=>{
+router.route("/delete").post((req, res)=>{
     console.log(req.body.comment);
     // db.Comment.findByIdAndDelete()
 })
