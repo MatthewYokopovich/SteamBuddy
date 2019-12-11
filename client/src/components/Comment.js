@@ -8,8 +8,12 @@ class Comment extends Component{
 
     render(){
         return (
-            <div>
-                {this.props.body}
+            <div style={{
+                borderStyle: "solid",
+                borderWidth: 1,
+                height: 200
+            }}><a href={"https://steamcommunity.com/profiles/"+this.props.author.steamId}>
+                {this.props.author.currentName}</a> said: {this.props.body}
             </div>
         )
     }
