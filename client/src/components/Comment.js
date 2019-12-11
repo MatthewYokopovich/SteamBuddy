@@ -11,9 +11,10 @@ class Comment extends Component{
             <div style={{
                 borderStyle: "solid",
                 borderWidth: 1,
-                height: 75
             }}><a href={"https://steamcommunity.com/profiles/"+this.props.author.steamId} style={{color: "inherit"}}>
-                {this.props.author.currentName}</a> said: {this.props.body}
+                <img src={this.props.author.imgSrc} style={{float: "left", borderStyle: "solid",
+                borderWidth: 1, borderColor: "#57cbde"}} /></a>
+                {this.props.author.currentName} said: {this.props.body}
             </div>
         )
     }

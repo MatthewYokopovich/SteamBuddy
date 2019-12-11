@@ -50,6 +50,7 @@ class Home extends Component{
                                     API.createUserDB({
                                         steamId: respon.data[0].steamid,
                                         currentName: respon.data[0].personaname,
+                                        imgSrc: respon.data[0].avatarmedium,
                                         favorites: []
                                     }).then(responsest=>{
                                         this.setState({
