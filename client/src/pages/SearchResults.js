@@ -83,7 +83,7 @@ class SearchResults extends Component {
                                         
                                     })
                                 })
-                            })
+                            
                         ):(
                             this.setState({
                             newsinfo: resp.data[0],
@@ -92,7 +92,7 @@ class SearchResults extends Component {
                             loggedIn
                         })
                         )
-                        
+                        })
                     })
             }) 
         })
