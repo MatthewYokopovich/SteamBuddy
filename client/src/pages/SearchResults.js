@@ -67,7 +67,8 @@ class SearchResults extends Component {
                                 API.getMyData().then(response=>{
                                     API.getUserDB({
                                         steamId: response.data[0].steamid}).then(responses=>{
-                                        this.setState({
+                                            API.getCommentsByApp(resp.data.appid).then(commentResp){
+                                                 this.setState({
                                 newsinfo: resp.data[0],
                                 gameschema: respo.data,
                                 playerachievements: respons.data,
@@ -76,6 +77,8 @@ class SearchResults extends Component {
                                 loggedIn
                             })
                             console.log(this.state);  
+                            console.log(commentResp.data);
+                                            }
                                     })
                                 })
                             })

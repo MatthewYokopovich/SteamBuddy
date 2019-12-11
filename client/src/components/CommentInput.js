@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import API from "../utils/API";
 class CommentInput extends Component{
 
     state={
@@ -13,13 +13,12 @@ class CommentInput extends Component{
     }
 
     handleSubmit = (event)=>{
-        event.preventDefault();
         let newComment = {
             author: this.props.user,
             body: this.state.value,
             appid: this.props.appid
         }
-        console.log(newComment);
+        API.createComment(newComment);
     }
 
     render(){
