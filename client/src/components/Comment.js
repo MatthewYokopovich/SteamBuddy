@@ -7,7 +7,6 @@ class Comment extends Component{
     }
 
     handleSubmit = (event)=>{
-        event.preventDefault();
         console.log(this.props.id);
         API.deleteComment(this.props.id).then(res=>{
             console.log(res.data);
