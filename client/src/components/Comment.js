@@ -18,6 +18,11 @@ class Comment extends Component{
                 <img src={this.props.author.imgSrc} style={{float: "left", borderStyle: "solid",
                 borderWidth: 1, borderColor: "#57cbde"}} /></a>
                 {this.props.author.currentName} said: {this.props.body}
+                {this.props.author._id===this.props.user ? (
+                    <p>match</p>
+                ):(
+                    <p></p>
+                )}
             </div>
         )
     }
