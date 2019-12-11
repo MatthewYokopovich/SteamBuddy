@@ -23,7 +23,7 @@ router.route("/findByApp").post((req, res)=>{
 
 router.route("/delete").post((req, res)=>{
     console.log(req.body.comment);
-    // db.Comment.findByIdAndDelete()
+    db.Comment.findByIdAndDelete(req.body.comment).then(dbComment=> res.json(dbComment));
 })
 
 module.exports = router;
