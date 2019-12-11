@@ -62,12 +62,13 @@ class SearchResults extends Component {
             API.getSearchNews(appid).then(resp=>{
                 API.getGameSchema(appid).then(respo=>{
                     API.getAchievementData(appid).then(respon=>{
+                        API.getCommentsByApp(resp.data[0].appid).then(commentResp=>{
                         loggedIn ?(
                             API.getPlayerAchievements(appid).then(respons=>{
                                 API.getMyData().then(response=>{
                                     API.getUserDB({
                                         steamId: response.data[0].steamid}).then(responses=>{
-                                            API.getCommentsByApp(resp.data[0].appid).then(commentResp=>{
+                                            
                                                 this.setState({
                                 newsinfo: resp.data[0],
                                 gameschema: respo.data,

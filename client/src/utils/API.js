@@ -73,7 +73,9 @@ export default {
     });
   },
   getCommentsByApp: function(appid){
-    return axios.post("/api/comment/findByApp", appid)
+    return axios.post("/api/comment/findByApp", {
+      appid
+    })
   },
   createComment: function(comment){
     return axios.put("/api/comment/create", {
