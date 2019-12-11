@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import Achievement from "../components/Achievement";
 import FavoriteButton from "../components/FavoriteButton";
 import Comment from "../components/Comment";
+import CommentInput from "../components/CommentInput";
 
 const styles = {
     grid:{
@@ -31,7 +32,6 @@ const styles = {
           backgroundColor: "#171a21"
     },
     paperRight:{
-      height: 600,
       flex: 4,
       margin: 10,
       textAlign: 'center',
@@ -109,11 +109,15 @@ class SearchResults extends Component {
                         
                     <Grid item xs={6} >
                         <Paper style={styles.paperLeft}>
+                            <div style={{
+                borderStyle: "solid",
+                borderWidth: 1,
+            }}>
                         <h4>News</h4>
                     {this.state.newsinfo.newsitems.map(n=>(
                             <NewsItem title={n.title} key={n.gid} url={n.url} contents={n.contents}/>
                          ))
-                    }
+                    }</div>
                     <h4>Comments</h4>
                     {this.state.comments.length ? (
                         this.state.comments.map(c=>(
@@ -121,6 +125,13 @@ class SearchResults extends Component {
                         ))
                     ):(
                         <p>No Comments Found...</p>
+                    )}
+                    {this.state.loggedIn ? (
+                        <div>
+                            <CommentInput user={this.state.userDB} appid={this.state.newsinfo.appid}/>
+                        </div>
+                    ):(
+                        <div></div>
                     )}
                     </Paper>
                     </Grid>
