@@ -28,7 +28,7 @@ class CommentInput extends Component{
                     Add a comment:
                     <input type="text" name="comment" value={this.state.value} onChange={this.handleInputChange} style={{
                         width: "100%",
-                        height: 100 
+                        height: 50
                         }}/>
                 </lable>
                 <input type="submit" value="Submit" style={{float: "right"}}/>
