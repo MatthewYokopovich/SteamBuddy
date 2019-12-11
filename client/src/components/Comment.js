@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-
+import API from "../utils/API";
 class Comment extends Component{
 
     componentDidMount(){
         console.log(this.props.author);
+    }
+
+    handleSubmit = (event)=>{
+        API.deleteComment(this.props.id);
     }
 
     render(){
@@ -19,7 +23,9 @@ class Comment extends Component{
                 borderWidth: 1, borderColor: "#57cbde"}} /></a>
                 {this.props.author.currentName} said: {this.props.body}
                 {this.props.author._id===this.props.user ? (
-                    <p>match</p>
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="submit" value="Remove" style={{float: "right"}}/>
+                    </form>
                 ):(
                     <p></p>
                 )}

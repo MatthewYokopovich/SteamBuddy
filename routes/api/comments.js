@@ -21,6 +21,11 @@ router.route("/findByApp").post((req, res)=>{
     }).populate("author").then(dbComment => res.json(dbComment));
 });
 
-
+router.route("/delete").delete((req, res)=>{
+    console.log(req.body.comment);
+    db.Comment.deleteOne({
+        _id: req.body.comment
+    }).then(dbComment => res.json(dbComment));
+})
 
 module.exports = router;

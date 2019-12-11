@@ -128,7 +128,7 @@ class SearchResults extends Component {
                     <h4>Comments</h4>
                     {this.state.comments.length ? (
                         this.state.comments.map(c=>(
-                            <Comment loggedIn={this.state.loggedIn} body={c.body} author={c.author} user={this.state.userDB._id} />
+                            <Comment loggedIn={this.state.loggedIn} body={c.body} author={c.author} user={this.state.userDB._id} id={c._id}/>
                         ))
                     ):(
                         <p>No Comments Found...</p>

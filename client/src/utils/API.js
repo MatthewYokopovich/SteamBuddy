@@ -81,6 +81,11 @@ export default {
     return axios.put("/api/comment/create", {
       comment
     })
+  },
+  deleteComment: function(comment){
+    return axios.delete("/api/comment/delete", {
+      comment
+    });
   }
  
 };
